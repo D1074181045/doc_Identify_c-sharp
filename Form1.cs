@@ -55,11 +55,11 @@ namespace doc_Identify
         void Loading_Show()
         {
             int i = -1;
-
+            
             Console.Clear();
 
             bool first = true;
-
+            
             while (true)
             {
                 if (!loading == true)
@@ -73,12 +73,12 @@ namespace doc_Identify
                     
                 i = (i > 1) ? 0 : i+1;
                 string[] s =  {".", "..", "..."};
-
+                
                 if (first)
                     first = false;
                 else
                     Console.Clear();
-
+                
                 Console.WriteLine("Loading" + s[i]);
 
                 Thread.Sleep(1000);
@@ -177,6 +177,11 @@ namespace doc_Identify
                         CreateNoWindow = true
                     };
                     process.Start();
+
+                    if (Program.read_mode == (int)Program.mode.cmd)
+                    {
+                        process.StandardInput.WriteLine(filePythonScript + "&exit");
+                    }
 
                     outputText = process.StandardOutput.ReadToEnd();
                     standardError = process.StandardError.ReadToEnd();

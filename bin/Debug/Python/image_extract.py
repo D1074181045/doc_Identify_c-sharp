@@ -1,9 +1,6 @@
 from cv2 import cv2
-from PIL import Image as ImagePIL, ImageFont, ImageDraw
-import io
 import numpy as np
 import os
-import replace
 import OCR
 
 
